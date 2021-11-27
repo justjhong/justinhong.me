@@ -1,0 +1,17 @@
+[
+    {
+        "name": "LinkedIn",
+        "icon": ["fab", "linkedin"],
+        "url": "https://www.linkedin.com/in/hongjustin/"
+    },
+    {
+        "name": "Github",
+        "icon": ["fab", "github"],
+        "url": "https://github.com/jjhong922"
+    },
+    {
+        "name": "Twitter",
+        "icon": ["fab", "twitter"],
+        "url": "https://twitter.com/justin_j_hong"
+    }
+]
