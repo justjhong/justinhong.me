@@ -12,8 +12,12 @@ const IconContainer = styled("div")`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin: 4em 1em 1em 1em;
+  margin: 4em 0 0 0;
   max-height: 200px;
+
+  @media (max-width: ${dimensions.maxwidthMobile}px) {
+    margin-top: 1em;
+  }
 `
 
 const BooksIcon = styled("img")`

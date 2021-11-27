@@ -3,10 +3,21 @@
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 256 256" style="enable-background:new 0 0 256 256;" xml:space="preserve">
 <style type="text/css">
-	.st0{fill:#FFFFFF;stroke:#000000;stroke-width:13;stroke-miterlimit:10;}
+	.st0{fill:#FFFFFF;stroke:#000000;stroke-width:3;stroke-miterlimit:10;}
+	.st1{fill:#FFFFFF;stroke:#000000;stroke-width:12;stroke-miterlimit:10;}
+	.st2{fill:#FFFFFF;stroke:#000000;stroke-width:5;stroke-miterlimit:10;}
+	.st3{fill:#FFFFFF;stroke:#000000;stroke-width:16;stroke-miterlimit:10;}
+	.st4{fill:#FFFFFF;stroke:#000000;stroke-width:2;stroke-miterlimit:10;}
 </style>
-<rect x="66.69" y="41.45" class="st0" width="31.31" height="173.11"/>
+<rect x="69.69" y="41.45" class="st0" width="31.31" height="173.11"/>
 <rect x="105.37" y="41.45" class="st0" width="31.31" height="173.11"/>
-<rect x="164.26" y="40.45" transform="matrix(0.9815 -0.1914 0.1914 0.9815 -20.9801 36.7808)" class="st0" width="31.31" height="173.11"/>
-<line class="st0" x1="66.69" y1="75.5" x2="136.67" y2="75.5"/>
+<rect x="157.26" y="40.45" transform="matrix(0.9815 -0.1914 0.1914 0.9815 -21.1095 35.4411)" class="st0" width="31.31" height="173.11"/>
+<line class="st1" x1="69.69" y1="190.8" x2="101" y2="190.8"/>
+<line class="st2" x1="105.35" y1="180.32" x2="136.66" y2="180.32"/>
+<line class="st3" x1="168.52" y1="187.96" x2="199.25" y2="181.97"/>
+<line class="st2" x1="105.33" y1="190.8" x2="136.63" y2="190.8"/>
+<line class="st4" x1="80.1" y1="79.08" x2="80.1" y2="158.9"/>
+<line class="st4" x1="116.47" y1="61.38" x2="116.47" y2="141.2"/>
+<line class="st4" x1="168.52" y1="71.37" x2="183.79" y2="149.71"/>
+<line class="st4" x1="163.09" y1="73.43" x2="173.95" y2="129.14"/>
 </svg>
