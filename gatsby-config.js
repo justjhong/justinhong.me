@@ -33,11 +33,15 @@ module.exports = {
       },
     },
     {
-        resolve: `gatsby-plugin-google-analytics`,
-        options: {
-            trackingId: "UA-111997269-3",
-            head: true,
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        trackingIds: [
+          "G-7KQ4Y2SDFV", // Google Analytics 4
+        ],
+        pluginConfig: {
+          head: true,
         },
-    },
+      }
+    }
   ],
 }
