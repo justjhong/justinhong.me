@@ -20,11 +20,6 @@ const IconContainer = styled("div")`
   }
 `
 
-const BooksIcon = styled("img")`
-  width: 200px;
-  height: 200px;
-`
-
 const PublicationsContainer = styled("div")`
   display: grid;
   grid-template-columns: 16em 1fr;
