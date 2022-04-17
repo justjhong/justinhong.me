@@ -15,6 +15,11 @@ const BioContent = () => (
       interested in developing scalable and easily interpretable computational
       methods for unraveling the complexities of biological data.
       <br />
+      <br />
+      Starting Fall 2022, I will be attending Columbia University as a{" "}
+      Ph.D. student in the Computer Science Department. I am excited to be joining the&nbsp;
+      <a href="https://www.azizilab.com/">Azizi Lab</a>.
+      <br />
       <br />I attended UC Berkeley for both undergraduate and graduate (M.S.)
       studies in Computer Science &#x26; Molecular and Cellular Biology. I was
       fortunate to have been advised by&nbsp;
