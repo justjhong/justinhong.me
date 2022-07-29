@@ -86,7 +86,7 @@ const AboutBio = styled("div")`
 const About = ({ bio, socialLinks, bioImg }) => (
   <AboutContainer>
     <AboutImgContainer>
-      <AboutImg fixed={bioImg} />
+      <AboutImg fixed={bioImg} alt={"Justin Hong"} />
       <AboutLinkContainer>
         {socialLinks.map((social, i) => (
           <AboutLink

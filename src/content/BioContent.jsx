@@ -2,7 +2,7 @@ import React from "react"
 
 const BioContent = () => (
   <div>
-    <h2>Hello, I'm Justin.</h2>
+    <h1>Hello, I'm Justin Hong.</h1>
     <p>
       I am a research engineer at the{" "}
       <a href="https://yoseflab.github.io/">Yosef Lab</a> at&nbsp;

@@ -6,6 +6,6 @@ const StyledLogoImg = styled("img")`
   height: 48px;
 `
 
-const Logo = () => <StyledLogoImg src={LogoSvg} />
+const Logo = () => <StyledLogoImg src={LogoSvg} alt={"Justin Hong Logo"}/>
 
 export default Logo

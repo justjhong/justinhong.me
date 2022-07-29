@@ -32,6 +32,11 @@ const globalStyles = css`
         color: white;
       }
     }
+
+    h1 {
+      font-size: 1.9em;
+      font-weight: 700;
+    }
   }
 
   /*
