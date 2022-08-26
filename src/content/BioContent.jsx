@@ -4,23 +4,24 @@ const BioContent = () => (
   <div>
     <h1>Hello, I'm Justin Hong.</h1>
     <p>
-      I am a research engineer at the{" "}
-      <a href="https://yoseflab.github.io/">Yosef Lab</a> at&nbsp;
-      <a href="https://www.berkeley.edu/">UC Berkeley</a>, where I develop an
-      open source package{" "}
-      <a href="https://scvi-tools.org/" style={{ fontFamily: "monospace" }}>
-        scvi-tools
-      </a>{" "}
-      for the deep-probabilistic modeling of single-cell omics data. I am
+      As of Fall 2022, I am attending Columbia University as a{" "}
+      Ph.D. student in the Computer Science Department. I am excited to be working with the&nbsp;
+      <a href="https://www.azizilab.com/">Azizi Lab</a>. I am
       interested in developing scalable and easily interpretable computational
       methods for unraveling the complexities of biological data.
       <br />
       <br />
-      Starting Fall 2022, I will be attending Columbia University as a{" "}
-      Ph.D. student in the Computer Science Department. I am excited to be joining the&nbsp;
-      <a href="https://www.azizilab.com/">Azizi Lab</a>.
+      Previously, I was a research engineer at the{" "}
+      <a href="https://yoseflab.github.io/">Yosef Lab</a> at&nbsp;
+      <a href="https://www.berkeley.edu/">UC Berkeley</a>, where I contributed to
+      open source package&nbsp;
+      <a href="https://scvi-tools.org/" style={{ fontFamily: "monospace" }}>
+        scvi-tools
+      </a>{" "}
+      for the deep-probabilistic modeling of single-cell omics data.
       <br />
-      <br />I attended UC Berkeley for both undergraduate and graduate (M.S.)
+      <br />
+      I attended UC Berkeley for both undergraduate and graduate (M.S.)
       studies in Computer Science &#x26; Molecular and Cellular Biology. I was
       fortunate to have been advised by&nbsp;
       <a href="http://people.eecs.berkeley.edu/~yss/">
@@ -44,7 +45,7 @@ const BioContent = () => (
       <br />
       Feel free to contact me at{" "}
       <span style={{ fontFamily: "monospace" }}>
-        justinhong at berkeley dot edu
+        firstname dot lastname at columbia dot edu
       </span>
       .
     </p>
