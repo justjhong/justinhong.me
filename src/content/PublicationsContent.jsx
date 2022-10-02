@@ -13,9 +13,9 @@ const PublicationsContent = () => (
       </b>
       <br />
       Adam Gayoso, Philipp Weiler, Mohammad Lotfollahi, Dominik Klein, <b>Justin Hong</b>,
-      Aaron M Streets, Fabian J Theis, and Nir Yosef.
+      Aaron M. Streets, Fabian J. Theis, and Nir Yosef.
       <br />
-      <i>jioRxiv</i> (2022).{" "}
+      <i>bioRxiv</i> (2022).{" "}
       <a href="https://doi.org/10.1101/2022.08.12.503709">
         [URL]
       </a>
@@ -45,7 +45,7 @@ const PublicationsContent = () => (
         single-cell references
       </b>
       <br />
-      Dan D Erdmann-Pham*, Jonathan Fischer*, <b>Justin Hong</b>, and Yun S
+      Dan D. Erdmann-Pham*, Jonathan Fischer*, <b>Justin Hong</b>, and Yun S.
       Song.
       <br />
       <i>Genome Research</i> (2021).{" "}
@@ -60,7 +60,7 @@ const PublicationsContent = () => (
         Single-cell References
       </b>
       <br />
-      <b>Justin Hong</b>, Dan D Erdmann-Pham, Jonathan Fischer, and Yun S Song.
+      <b>Justin Hong</b>, Dan D. Erdmann-Pham, Jonathan Fischer, and Yun S. Song.
       <br />
       <i>Master’s Thesis</i>. University of California, Berkeley, 2021.{" "}
       <a href="https://www2.eecs.berkeley.edu/Pubs/TechRpts/2021/EECS-2021-21.pdf">
