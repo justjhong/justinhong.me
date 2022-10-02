@@ -9,6 +9,20 @@ const PublicationsContent = () => (
   <>
     <PublicationItem>
       <b>
+        Deep generative modeling of transcriptional dynamics for RNA velocity analysis in single cells
+      </b>
+      <br />
+      Adam Gayoso, Philipp Weiler, Mohammad Lotfollahi, Dominik Klein, <b>Justin Hong</b>,
+      Aaron M Streets, Fabian J Theis, and Nir Yosef.
+      <br />
+      <i>jioRxiv</i> (2022).{" "}
+      <a href="https://doi.org/10.1101/2022.08.12.503709">
+        [URL]
+      </a>
+      .
+    </PublicationItem>
+    <PublicationItem>
+      <b>
         A Python library for probabilistic analysis of single-cell omics
       </b>
       <br />
@@ -21,7 +35,7 @@ const PublicationsContent = () => (
       <br />
       <i>Nature Biotechnology</i> (2022).{" "}
       <a href="https://doi.org/10.1038/s41587-021-01206-w">
-        [PDF]
+        [URL]
       </a>
       .
     </PublicationItem>
@@ -36,7 +50,7 @@ const PublicationsContent = () => (
       <br />
       <i>Genome Research</i> (2021).{" "}
       <a href="https://genome.cshlp.org/content/31/10/1794.full.pdf+html">
-        [PDF]
+        [URL]
       </a>
       .
     </PublicationItem>
@@ -50,7 +64,7 @@ const PublicationsContent = () => (
       <br />
       <i>Master’s Thesis</i>. University of California, Berkeley, 2021.{" "}
       <a href="https://www2.eecs.berkeley.edu/Pubs/TechRpts/2021/EECS-2021-21.pdf">
-        [PDF]
+        [URL]
       </a>
       .
     </PublicationItem>
@@ -61,7 +75,7 @@ const PublicationsContent = () => (
       <br />
       <i>arXiv</i> (2019) (Presented at{" "}
       <i>ICML Workshop on Privacy and Security in ML</i>, 2019).{" "}
-      <a href="https://arxiv.org/abs/1906.06629">[PDF]</a>.
+      <a href="https://arxiv.org/abs/1906.06629">[URL]</a>.
     </PublicationItem>
   </>
 )
