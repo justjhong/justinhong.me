@@ -7,6 +7,18 @@ const PublicationItem = styled("div")`
 
 const PublicationsContent = () => (
   <>
+      <b>
+        Deep generative modeling for quantifying sample-level heterogeneity in single-cell omics
+      </b>
+      <br />
+      Pierre Boyeau*, <b>Justin Hong*</b>, Adam Gayoso, Michael Jordan, Elham Azizi, and Nir Yosef.
+      <br />
+      <i>bioRxiv</i> (2022).{" "}
+      <a href="https://doi.org/10.1101/2022.10.04.510898">
+        [URL]
+      </a>
+      .
+    </PublicationItem>
     <PublicationItem>
       <b>
         Deep generative modeling of transcriptional dynamics for RNA velocity analysis in single cells
