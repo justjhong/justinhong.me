@@ -4,24 +4,23 @@ const BioContent = () => (
   <div>
     <h1>Hello, I'm Justin Hong.</h1>
     <p>
-      As of Fall 2022, I am attending Columbia University as a{" "}
-      Ph.D. student in the Computer Science Department. I am excited to be working with the&nbsp;
-      <a href="https://www.azizilab.com/">Azizi Lab</a>. I am
-      interested in developing scalable and easily interpretable computational
-      methods for unraveling the complexities of biological data.
+      I am a second year Ph.D. student at Columbia University in the Computer
+      Science Department. I am excited to be working with the&nbsp;
+      <a href="https://www.azizilab.com/">Azizi Lab</a>. I am interested in
+      developing scalable and easily interpretable computational methods for
+      unraveling the complexities of biological data.
       <br />
       <br />
       Previously, I was a research engineer at the{" "}
       <a href="https://yoseflab.github.io/">Yosef Lab</a> at&nbsp;
-      <a href="https://www.berkeley.edu/">UC Berkeley</a>, where I contributed to
-      open source package&nbsp;
+      <a href="https://www.berkeley.edu/">UC Berkeley</a>, where I contributed
+      to open source package&nbsp;
       <a href="https://scvi-tools.org/" style={{ fontFamily: "monospace" }}>
         scvi-tools
       </a>{" "}
       for the deep-probabilistic modeling of single-cell omics data.
       <br />
-      <br />
-      I attended UC Berkeley for both undergraduate and graduate (M.S.)
+      <br />I attended UC Berkeley for both undergraduate and graduate (M.S.)
       studies in Computer Science &#x26; Molecular and Cellular Biology. I was
       fortunate to have been advised by&nbsp;
       <a href="http://people.eecs.berkeley.edu/~yss/">
