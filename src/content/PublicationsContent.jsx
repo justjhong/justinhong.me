@@ -7,6 +7,7 @@ const PublicationItem = styled("div")`
 
 const PublicationsContent = () => (
   <>
+    <PublicationItem>
       <b>
         Deep generative modeling for quantifying sample-level heterogeneity in single-cell omics
       </b>
