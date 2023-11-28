@@ -9,13 +9,26 @@ const PublicationsContent = () => (
   <>
     <PublicationItem>
       <b>
-        Deep generative modeling for quantifying sample-level heterogeneity in single-cell omics
+        Stable Differentiable Causal Discovery
       </b>
       <br />
-      Pierre Boyeau*, <b>Justin Hong*</b>, Adam Gayoso, Michael Jordan, Elham Azizi, and Nir Yosef.
+      Achille Nazaret*, <b>Justin Hong*</b>, Elham Azizi, and David Blei.
       <br />
-      <i>bioRxiv</i> (2022).{" "}
-      <a href="https://doi.org/10.1101/2022.10.04.510898">
+      <i>arXiv</i> (2023).{" "}
+      <a href="https://arxiv.org/abs/2311.10263">
+        [URL]
+      </a>
+      .
+    </PublicationItem>
+    <PublicationItem>
+      <b>
+        BetterBoost-Inference of Gene Regulatory Networks with Perturbation Data
+      </b>
+      <br />
+      Achille Nazaret and <b>Justin Hong</b>.
+      <br />
+      <i>GSK.ai CausalBench Challenge, Machine Learning for Drug Discovery (MLDD) Workshop at ICLR, 1st Place Prize, Oral Presentation</i> (2023).{" "}
+      <a href="https://openreview.net/forum?id=gpDOOAOmMe">
         [URL]
       </a>
       .
@@ -28,8 +41,21 @@ const PublicationsContent = () => (
       Adam Gayoso, Philipp Weiler, Mohammad Lotfollahi, Dominik Klein, <b>Justin Hong</b>,
       Aaron M. Streets, Fabian J. Theis, and Nir Yosef.
       <br />
-      <i>bioRxiv</i> (2022).{" "}
-      <a href="https://doi.org/10.1101/2022.08.12.503709">
+      <i>Nature Methods</i> (2023).{" "}
+      <a href="https://www.nature.com/articles/s41592-023-01994-w">
+        [URL]
+      </a>
+      .
+    </PublicationItem>
+    <PublicationItem>
+      <b>
+        Deep generative modeling for quantifying sample-level heterogeneity in single-cell omics
+      </b>
+      <br />
+      Pierre Boyeau*, <b>Justin Hong*</b>, Adam Gayoso, Michael Jordan, Elham Azizi, and Nir Yosef.
+      <br />
+      <i>Machine Learning in Computational Biology (MLCB), Oral Presentation</i> (2022).{" "}
+      <a href="https://doi.org/10.1101/2022.10.04.510898">
         [URL]
       </a>
       .
@@ -86,8 +112,7 @@ const PublicationsContent = () => (
       <br />
       Avishek Ghosh*, <b>Justin Hong</b>*, Dong Yin, and Kannan Ramchandran.
       <br />
-      <i>arXiv</i> (2019) (Presented at{" "}
-      <i>ICML Workshop on Privacy and Security in ML</i>, 2019).{" "}
+      <i>ICML Workshop on Privacy and Security in ML</i> (2019)
       <a href="https://arxiv.org/abs/1906.06629">[URL]</a>.
     </PublicationItem>
   </>
