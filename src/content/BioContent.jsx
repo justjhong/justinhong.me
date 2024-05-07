@@ -5,16 +5,16 @@ const BioContent = () => (
     <h1>Hello, I'm Justin Hong.</h1>
     <p>
       I am a second year Ph.D. student at Columbia University in the Computer
-      Science Department. I am excited to be working with the&nbsp;
-      <a href="https://www.azizilab.com/">Azizi Lab</a>. I am interested in
-      developing scalable and easily interpretable computational methods for
-      unraveling the complexities of biological data.
+      Science Department advised by&nbsp;
+      <a href="https://www.azizilab.com/">Professor Elham Azizi</a>. I am
+      interested in developing scalable and easily interpretable computational
+      methods for unraveling the complexities of biological data.
       <br />
       <br />
       Previously, I was a research engineer at the{" "}
       <a href="https://yoseflab.github.io/">Yosef Lab</a> at&nbsp;
       <a href="https://www.berkeley.edu/">UC Berkeley</a>, where I contributed
-      to open source package&nbsp;
+      to the open source package&nbsp;
       <a href="https://scvi-tools.org/" style={{ fontFamily: "monospace" }}>
         scvi-tools
       </a>{" "}

@@ -8,14 +8,40 @@ const PublicationItem = styled("div")`
 const PublicationsContent = () => (
   <>
     <PublicationItem>
-      <b>
-        Stable Differentiable Causal Discovery
-      </b>
+      <b>Stable Differentiable Causal Discovery</b>
       <br />
       Achille Nazaret*, <b>Justin Hong*</b>, Elham Azizi, and David Blei.
       <br />
-      <i>arXiv</i> (2023).{" "}
-      <a href="https://arxiv.org/abs/2311.10263">
+      <i>
+        Proceedings of the 41st International Conference on Machine Learning
+        (ICML), to appear
+      </i>{" "}
+      (2024). <a href="https://arxiv.org/abs/2311.10263">[URL]</a>.
+    </PublicationItem>
+    <PublicationItem>
+      <b>
+        A heterogeneous pharmaco-transcriptomic landscape induced by targeting a
+        single oncogenic kinase
+      </b>
+      <br />
+      Ross M Giglio, ..., <b>Justin Hong</b>, ..., and Jose L McFaline-Figueroa.
+      <br />
+      <i>bioRxiv</i> (2024).{" "}
+      <a href="https://www.biorxiv.org/content/10.1101/2024.04.08.587960v2">
+        [URL]
+      </a>
+      .
+    </PublicationItem>
+    <PublicationItem>
+      <b>
+        CRISPRmap: Sequencing-free optical pooled screens mapping multi-omic
+        phenotypes in cells and tissue
+      </b>
+      <br />
+      Jiacheng Gu, ..., <b>Justin Hong</b>, ..., and Jellert T Gaublomme.
+      <br />
+      <i>bioRxiv</i> (2024).{" "}
+      <a href="https://www.biorxiv.org/content/10.1101/2023.12.26.572587v1">
         [URL]
       </a>
       .
@@ -27,56 +53,45 @@ const PublicationsContent = () => (
       <br />
       Achille Nazaret and <b>Justin Hong</b>.
       <br />
-      <i>GSK.ai CausalBench Challenge, Machine Learning for Drug Discovery (MLDD) Workshop at ICLR, 1st Place Prize, Oral Presentation</i> (2023).{" "}
-      <a href="https://openreview.net/forum?id=gpDOOAOmMe">
-        [URL]
-      </a>
-      .
+      <i>
+        GSK.ai CausalBench Challenge, Machine Learning for Drug Discovery (MLDD)
+        Workshop at ICLR, 1st Place Prize, Oral Presentation
+      </i>{" "}
+      (2023). <a href="https://openreview.net/forum?id=gpDOOAOmMe">[URL]</a>.
     </PublicationItem>
     <PublicationItem>
       <b>
-        Deep generative modeling of transcriptional dynamics for RNA velocity analysis in single cells
+        Deep generative modeling of transcriptional dynamics for RNA velocity
+        analysis in single cells
       </b>
       <br />
-      Adam Gayoso, Philipp Weiler, Mohammad Lotfollahi, Dominik Klein, <b>Justin Hong</b>,
-      Aaron M. Streets, Fabian J. Theis, and Nir Yosef.
+      Adam Gayoso, ..., <b>Justin Hong</b>, ..., and Nir Yosef.
       <br />
       <i>Nature Methods</i> (2023).{" "}
-      <a href="https://www.nature.com/articles/s41592-023-01994-w">
-        [URL]
-      </a>
-      .
+      <a href="https://www.nature.com/articles/s41592-023-01994-w">[URL]</a>.
     </PublicationItem>
     <PublicationItem>
       <b>
-        Deep generative modeling for quantifying sample-level heterogeneity in single-cell omics
+        Deep generative modeling for quantifying sample-level heterogeneity in
+        single-cell omics
       </b>
       <br />
-      Pierre Boyeau*, <b>Justin Hong*</b>, Adam Gayoso, Michael Jordan, Elham Azizi, and Nir Yosef.
+      Pierre Boyeau*, <b>Justin Hong*</b>, Adam Gayoso, Michael Jordan, Elham
+      Azizi, and Nir Yosef.
       <br />
-      <i>Machine Learning in Computational Biology (MLCB), Oral Presentation</i> (2022).{" "}
-      <a href="https://doi.org/10.1101/2022.10.04.510898">
-        [URL]
-      </a>
-      .
+      <i>
+        Machine Learning in Computational Biology (MLCB), Oral Presentation
+      </i>{" "}
+      (2022). <a href="https://doi.org/10.1101/2022.10.04.510898">[URL]</a>.
     </PublicationItem>
     <PublicationItem>
-      <b>
-        A Python library for probabilistic analysis of single-cell omics
-      </b>
+      <b>A Python library for probabilistic analysis of single-cell omics</b>
       <br />
-      Adam Gayoso*, Romain Lopez*, Galen Xing*, Pierre Boyeau, Valeh Valiollah Pour
-      Amiri, <b>Justin Hong</b>, Katherine Wu, Michael Jayasuriya, Edouard Mehlman, Maxime
-      Langevin, Yining Liu, Jules Samaran, Gabriel Misrachi, Achille Nazaret, Oscar Clivio,
-      Chenling Xu, Tal Ashuach, Mariano Gabitto, Mohammad Lotfollahi, Valentine Svensson,
-      Eduardo da Veiga Beltrame, Vitalii Kleshchevnikov, Carlos Talavera-López, Lior Pachter,
-      Fabian J. Theis, Aaron Streets, Michael I. Jordan, Jeffrey Regier, and Nir Yosef.
+      Adam Gayoso*, Romain Lopez*, Galen Xing*, ..., <b>Justin Hong</b>, ...,
+      and Nir Yosef.
       <br />
       <i>Nature Biotechnology</i> (2022).{" "}
-      <a href="https://doi.org/10.1038/s41587-021-01206-w">
-        [URL]
-      </a>
-      .
+      <a href="https://doi.org/10.1038/s41587-021-01206-w">[URL]</a>.
     </PublicationItem>
     <PublicationItem>
       <b>
@@ -99,7 +114,8 @@ const PublicationsContent = () => (
         Single-cell References
       </b>
       <br />
-      <b>Justin Hong</b>, Dan D. Erdmann-Pham, Jonathan Fischer, and Yun S. Song.
+      <b>Justin Hong</b>, Dan D. Erdmann-Pham, Jonathan Fischer, and Yun S.
+      Song.
       <br />
       <i>Master’s Thesis</i>. University of California, Berkeley, 2021.{" "}
       <a href="https://www2.eecs.berkeley.edu/Pubs/TechRpts/2021/EECS-2021-21.pdf">
