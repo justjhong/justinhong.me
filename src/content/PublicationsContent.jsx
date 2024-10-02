@@ -14,7 +14,7 @@ const PublicationsContent = () => (
       <br />
       <i>
         Proceedings of the 41st International Conference on Machine Learning
-        (ICML), to appear
+        (ICML)
       </i>{" "}
       (2024). <a href="https://arxiv.org/abs/2311.10263">[URL]</a>.
     </PublicationItem>

@@ -4,7 +4,7 @@ const BioContent = () => (
   <div>
     <h1>Hello, I'm Justin Hong.</h1>
     <p>
-      I am a second year Ph.D. student at Columbia University in the Computer
+      I am a third year Ph.D. student at Columbia University in the Computer
       Science Department advised by&nbsp;
       <a href="https://www.azizilab.com/">Professor Elham Azizi</a>. I am
       interested in developing scalable and easily interpretable computational
