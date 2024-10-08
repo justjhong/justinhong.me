@@ -29,7 +29,7 @@ const PublicationsContent = () => (
         Proceedings of the 41st International Conference on Machine Learning
         (ICML)
       </i>{" "}
-      (2024). <a href="https://arxiv.org/abs/2311.10263">[URL]</a>.
+      (2024). <a href="https://proceedings.mlr.press/v235/nazaret24a.html">[URL]</a>.
     </PublicationItem>
     <PublicationItem>
       <b>
