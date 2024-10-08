@@ -8,6 +8,19 @@ const PublicationItem = styled("div")`
 const PublicationsContent = () => (
   <>
     <PublicationItem>
+      <b>
+        Mapping multimodal phenotypes to perturbations in cells and tissue with CRISPRmap
+      </b>
+      <br />
+      Jiacheng Gu, ..., <b>Justin Hong</b>, ..., and Jellert T Gaublomme.
+      <br />
+      <i>Nature Biotechnology</i> (2024).{" "}
+      <a href="https://www.nature.com/articles/s41587-024-02386-x">
+        [URL]
+      </a>
+      .
+    </PublicationItem>
+    <PublicationItem>
       <b>Stable Differentiable Causal Discovery</b>
       <br />
       Achille Nazaret*, <b>Justin Hong*</b>, Elham Azizi, and David Blei.
@@ -28,20 +41,6 @@ const PublicationsContent = () => (
       <br />
       <i>bioRxiv</i> (2024).{" "}
       <a href="https://www.biorxiv.org/content/10.1101/2024.04.08.587960v2">
-        [URL]
-      </a>
-      .
-    </PublicationItem>
-    <PublicationItem>
-      <b>
-        CRISPRmap: Sequencing-free optical pooled screens mapping multi-omic
-        phenotypes in cells and tissue
-      </b>
-      <br />
-      Jiacheng Gu, ..., <b>Justin Hong</b>, ..., and Jellert T Gaublomme.
-      <br />
-      <i>bioRxiv</i> (2024).{" "}
-      <a href="https://www.biorxiv.org/content/10.1101/2023.12.26.572587v1">
         [URL]
       </a>
       .
