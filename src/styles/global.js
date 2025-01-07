@@ -19,7 +19,6 @@ const globalStyles = css`
     line-height: 1.5;
     color: var(--text-color);
     background-color: var(--bg-color);
-    transition: background-color 0.3s ease, color 0.3s ease;
     -webkit-font-smoothing: antialiased;
 
     &[data-theme="light"] {
@@ -45,12 +44,6 @@ const globalStyles = css`
         background: ${colors.orange500};
         color: white;
       }
-    }
-
-    h1 {
-      font-size: 1.9em;
-      font-weight: 700;
-      color: var(--header-color);
     }
   }
 

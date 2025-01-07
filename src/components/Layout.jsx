@@ -8,6 +8,7 @@ import typeStyles from "styles/typography"
 import dimensions from "styles/dimensions"
 import Footer from "components/Footer"
 import Header from "components/Header"
+import FadeIn from "components/FadeIn"
 import { ThemeProvider } from "../context/ThemeContext"
 import "styles/fonts.scss"
 
@@ -45,11 +46,13 @@ const Layout = ({ children }) => (
     `}
     render={data => (
       <ThemeProvider>
-        <LayoutContainer className="div">
+        <LayoutContainer>
           <Global styles={[globalStyles, typeStyles]} />
           <div className="Layout">
             <Header />
-            <main className="Layout__content">{children}</main>
+            <FadeIn>
+              <main className="Layout__content">{children}</main>
+            </FadeIn>
             <Footer />
           </div>
         </LayoutContainer>
