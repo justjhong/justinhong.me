@@ -25,7 +25,7 @@ const FooterAuthor = styled("div")`
 
 const Footer = () => (
   <FooterContainer>
-    <FooterAuthor>Justin Hong © 2024</FooterAuthor>
+    <FooterAuthor>Justin Hong © 2025</FooterAuthor>
   </FooterContainer>
 )
 

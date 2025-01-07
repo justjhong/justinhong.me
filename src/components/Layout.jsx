@@ -2,12 +2,13 @@ import React from "react"
 import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
 import styled from "@emotion/styled"
-import { Global } from "@emotion/core"
+import { Global } from "@emotion/react"
 import globalStyles from "styles/global"
 import typeStyles from "styles/typography"
 import dimensions from "styles/dimensions"
 import Footer from "components/Footer"
 import Header from "components/Header"
+import { ThemeProvider } from "../context/ThemeContext"
 import "styles/fonts.scss"
 
 const LayoutContainer = styled.div`
@@ -43,14 +44,16 @@ const Layout = ({ children }) => (
       }
     `}
     render={data => (
-      <LayoutContainer className="div">
-        <Global styles={[globalStyles, typeStyles]} />
-        <div className="Layout">
-          <Header />
-          <main className="Layout__content">{children}</main>
-          <Footer />
-        </div>
-      </LayoutContainer>
+      <ThemeProvider>
+        <LayoutContainer className="div">
+          <Global styles={[globalStyles, typeStyles]} />
+          <div className="Layout">
+            <Header />
+            <main className="Layout__content">{children}</main>
+            <Footer />
+          </div>
+        </LayoutContainer>
+      </ThemeProvider>
     )}
   />
 )

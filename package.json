@@ -1,11 +1,7 @@
 {
-  "name": "justinhong.me",
-  "private": true,
-  "description": "A personal site for Justin Hong.",
-  "version": "0.1.0",
-  "author": "Justin Hong",
   "dependencies": {
     "@emotion/core": "^10.0.10",
+    "@emotion/react": "^11.14.0",
     "@emotion/styled": "^10.0.12",
     "@fortawesome/fontawesome-free": "^5.15.4",
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
