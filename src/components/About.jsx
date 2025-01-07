@@ -15,7 +15,7 @@ library.add(faTwitter, faLinkedin, faGithub)
 
 const AboutContainer = styled("div")`
   display: grid;
-  grid-template-columns: 16em 1fr;
+  grid-template-columns: 18em 1fr;
   grid-gap: 3em;
 
   @media (max-width: ${dimensions.maxwidthMobile}px) {
@@ -39,10 +39,11 @@ const AboutImgContainer = styled("div")`
 `
 
 const AboutImg = styled(Img)`
-  border-radius: 50%;
+  border-radius: 10%;
 `
 
 const AboutLinkContainer = styled("div")`
+  width: 0;
   padding-top: 3em;
   padding-bottom: 1em;
   display: flex;
@@ -50,6 +51,8 @@ const AboutLinkContainer = styled("div")`
 `
 
 const AboutLink = styled("a")`
+  width: 3em;
+  margin-left: 1em;
   margin-bottom: 1.5em;
   font-weight: 600;
   line-height: 1.9;

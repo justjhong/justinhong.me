@@ -75,9 +75,9 @@ export const query = graphql`
         author
       }
     }
-    file(relativePath: { eq: "biopic.png" }) {
+    file(relativePath: { eq: "biopic.jpg" }) {
       childImageSharp {
-        fixed(width: 200, height: 200) {
+        fixed(width: 200, height: 225) {
           ...GatsbyImageSharpFixed
         }
       }
