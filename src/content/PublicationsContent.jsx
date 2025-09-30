@@ -9,6 +9,60 @@ const PublicationsContent = () => (
   <>
     <PublicationItem>
       <b>
+        AMICI: Attention Mechanism Interpretation of Cell-cell Interactions
+      </b>
+      <br />
+      <b>Justin Hong*</b>, Khushi Desai*, Tu Duyen Nguyen, Achille Nazaret, Nathan Levy,
+      Can Ergen, George Plitas, and Elham Azizi.
+      <br />
+      <i>bioRxiv</i> (2025), pp. 2025–09.{" "}
+      <a href="https://www.biorxiv.org/content/10.1101/2025.09.15.613176v1">
+        [URL]
+      </a>
+      .
+    </PublicationItem>
+
+    <PublicationItem>
+      <b>
+        Domain-Invariant Feature Learning for Patient-Level Phenotype Prediction from Single-Cell Data
+      </b>
+      <br />
+      Mathias Perez*, <b>Justin Hong*</b>, Aaron Zweig, and Elham Azizi.
+      <br />
+      <i>AI for Science workshop, NeurIPS 2025</i> (2025).{" "}
+      <a href="https://openreview.net/forum?id=VSmvfJ4Dhz">
+        [URL]
+      </a>
+      .
+    </PublicationItem>
+
+    <PublicationItem>
+      <b>
+        Deep generative modeling of sample-level heterogeneity in single-cell genomics
+      </b>
+      <br />
+      Pierre Boyeau*, <b>Justin Hong*</b>, Adam Gayoso, Martin Kim, José L McFaline-Figueroa,
+      Michael I Jordan, Elham Azizi, Can Ergen, and Nir Yosef.
+      <br />
+      <i>Nature Methods</i> (accepted in principle) (2025).
+    </PublicationItem>
+
+   <PublicationItem>
+      <b>
+        The CausalBench challenge: A machine learning contest for gene network inference from single-cell perturbation data
+      </b>
+      <br />
+      Mathieu Chevalley, ..., <b>Justin Hong</b>, ..., and Patrick Schwab.
+      <br />
+      <i>Fourth Conference on Causal Learning and Reasoning (CLeaR 2025)</i> (2025).{" "}
+      <a href="https://openreview.net/forum?id=nwUHLgKXBv">
+        [URL]
+      </a>
+      .
+    </PublicationItem>
+
+    <PublicationItem>
+      <b>
         Mapping multimodal phenotypes to perturbations in cells and tissue with CRISPRmap
       </b>
       <br />
