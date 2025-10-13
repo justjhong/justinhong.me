@@ -44,7 +44,11 @@ const PublicationsContent = () => (
       Pierre Boyeau*, <b>Justin Hong*</b>, Adam Gayoso, Martin Kim, José L McFaline-Figueroa,
       Michael I Jordan, Elham Azizi, Can Ergen, and Nir Yosef.
       <br />
-      <i>Nature Methods</i> (accepted in principle) (2025).
+      <i>Nature Methods</i> (2025).{" "}
+      <a href="https://www.nature.com/articles/s41592-025-02808-x">
+        [URL]
+      </a>
+      .
     </PublicationItem>
 
    <PublicationItem>
