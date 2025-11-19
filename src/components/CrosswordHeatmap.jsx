@@ -288,9 +288,9 @@ const CrosswordHeatmap = () => {
     const date = new Date(dateStr)
     const dayIndex = date.getDay() // 0-6
 
-    // Bottom 2 rows (Fri 5, Sat 6) -> Show Above
+    // Bottom 2 rows (Fri 4, Sat 5) -> Show Above
     // Others -> Show Left
-    const showAbove = dayIndex >= 5
+    const showAbove = dayIndex >= 4 && dayIndex <= 5
 
     let x, y
 
