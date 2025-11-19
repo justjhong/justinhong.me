@@ -2,6 +2,7 @@ import React from "react"
 import styled from "@emotion/styled"
 import colors from "styles/colors"
 import dimensions from "styles/dimensions"
+import CrosswordHeatmap from "./CrosswordHeatmap"
 
 const FooterContainer = styled("div")`
   padding-top: 3.75em;
@@ -25,6 +26,7 @@ const FooterAuthor = styled("div")`
 
 const Footer = () => (
   <FooterContainer>
+    <CrosswordHeatmap />
     <FooterAuthor>Justin Hong © 2025</FooterAuthor>
   </FooterContainer>
 )

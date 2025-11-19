@@ -1,0 +1,384 @@
+import React, { useEffect, useState, useRef } from "react"
+import styled from "@emotion/styled"
+import { collection, query, where, getDocs } from "firebase/firestore"
+import { db } from "../utils/firebase"
+import colors from "styles/colors"
+
+const HeatmapContainer = styled("div")`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 2em;
+  width: 100%;
+  overflow-x: auto;
+  padding-bottom: 1em;
+
+  /* Hide scrollbar for cleaner look */
+  &::-webkit-scrollbar {
+    height: 4px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: ${colors.grey300};
+    border-radius: 2px;
+  }
+`
+
+const HeatmapTitle = styled("div")`
+  font-size: 0.8em;
+  color: ${colors.grey700};
+  margin-bottom: 0.5em;
+  font-weight: 500;
+  align-self: center;
+`
+
+const GraphContainer = styled("div")`
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+`
+
+const MonthLabels = styled("div")`
+  display: flex;
+  height: 15px;
+  position: relative;
+  width: 100%;
+`
+
+const MonthLabel = styled("div")`
+  position: absolute;
+  font-size: 10px;
+  color: ${colors.grey700};
+  left: ${props => props.offset}px;
+`
+
+const HeatmapGrid = styled("div")`
+  display: grid;
+  grid-template-rows: repeat(7, 10px);
+  grid-auto-flow: column;
+  gap: 3px;
+`
+
+const DayCell = styled("div")`
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  background-color: ${props => props.color};
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
+
+const StarIcon = () => (
+  <svg
+    viewBox="0 0 24 24"
+    width="6"
+    height="6"
+    fill="white"
+    style={{ opacity: 0.7 }}
+  >
+    <path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z" />
+  </svg>
+)
+
+const Tooltip = styled("div")`
+  position: absolute;
+  background: ${colors.grey800};
+  color: white;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  pointer-events: none;
+  z-index: 100;
+  white-space: nowrap;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  
+  &::after {
+    content: '';
+    position: absolute;
+    border-width: 5px;
+    border-style: solid;
+    
+    ${props => props.position === 'left' ? `
+      top: 50%;
+      left: 100%;
+      margin-top: -5px;
+      border-color: transparent transparent transparent ${colors.grey800};
+    ` : `
+      top: 100%;
+      left: 50%;
+      margin-left: -5px;
+      border-color: ${colors.grey800} transparent transparent transparent;
+    `}
+  }
+`
+
+const CrosswordHeatmap = () => {
+  const [data, setData] = useState({})
+  const [loading, setLoading] = useState(true)
+  const [minTime, setMinTime] = useState(Infinity)
+  const [maxTime, setMaxTime] = useState(0)
+  const [error, setError] = useState(null)
+  const [hoveredDay, setHoveredDay] = useState(null)
+  const [scale, setScale] = useState(1)
+  const graphRef = useRef(null)
+
+  useEffect(() => {
+    const handleResize = () => {
+      // Fixed width of the heatmap is approx 720px (52 weeks * 13px + labels)
+      const contentWidth = 720
+      const availableWidth = window.innerWidth - 40 // 20px padding on each side
+
+      if (availableWidth < contentWidth) {
+        setScale(availableWidth / contentWidth)
+      } else {
+        setScale(1)
+      }
+    }
+
+    window.addEventListener('resize', handleResize)
+    handleResize()
+
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+
+  useEffect(() => {
+    const fetchData = async () => {
+      if (!db) {
+        console.log("Firebase DB not initialized")
+        setLoading(false)
+        return
+      }
+
+      try {
+        const today = new Date()
+        // Fetch a bit more than a year to be safe
+        const pastDate = new Date()
+        pastDate.setDate(today.getDate() - 400)
+
+        const startDateStr = pastDate.toISOString().split('T')[0]
+        console.log("Fetching crossword data from:", startDateStr)
+
+        const q = query(
+          collection(db, "completion_times"),
+          where("date", ">=", startDateStr)
+        )
+
+        const querySnapshot = await getDocs(q)
+        console.log("Fetched docs count:", querySnapshot.size)
+
+        const newData = {}
+        let min = Infinity
+        let max = 0
+
+        querySnapshot.forEach((doc) => {
+          const docData = doc.data()
+          const time = docData.completionTime
+          const status = docData.status || (time ? 'completed' : 'not_completed')
+
+          if (time) {
+            newData[docData.date] = {
+              time,
+              status
+            }
+            if (time < min) min = time
+            if (time > max) max = time
+          }
+        })
+
+        setData(newData)
+        setMinTime(min)
+        setMaxTime(max)
+      } catch (error) {
+        console.error("Error fetching crossword data:", error)
+        setError(error.message)
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchData()
+  }, [])
+
+  if (loading) return <div>Loading heatmap...</div>
+  if (error) return <div>Error loading heatmap: {error}</div>
+  if (!db) return <div>Firebase not configured</div>
+
+  // If no data, still render the empty grid
+  // if (Object.keys(data).length === 0) {
+  //   return <div>No crossword data found</div>
+  // }
+
+  // Calculate date range for exactly 52 weeks ending this week
+  const today = new Date()
+  const currentDay = today.getDay() // 0 (Sun) - 6 (Sat)
+
+  // Find the Sunday of the current week
+  const currentWeekSunday = new Date(today)
+  currentWeekSunday.setDate(today.getDate() - currentDay)
+
+  // Start date is 51 weeks before the current week's Sunday
+  const startDate = new Date(currentWeekSunday)
+  startDate.setDate(currentWeekSunday.getDate() - (51 * 7))
+
+  // End date is the Saturday of the current week
+  const endDate = new Date(currentWeekSunday)
+  endDate.setDate(currentWeekSunday.getDate() + 6)
+
+  // Generate days
+  const days = []
+  const currentDate = new Date(startDate)
+  while (currentDate <= endDate) {
+    days.push(new Date(currentDate))
+    currentDate.setDate(currentDate.getDate() + 1)
+  }
+
+  // Generate month labels
+  const months = []
+  let currentMonth = -1
+  let lastLabelRight = -50 // Initialize to ensure first label can be placed
+
+  // We iterate by week to place labels
+  for (let i = 0; i < 52; i++) {
+    const weekStartDate = new Date(startDate)
+    weekStartDate.setDate(startDate.getDate() + (i * 7))
+    const month = weekStartDate.getMonth()
+    const offset = i * 13 // 10px width + 3px gap
+
+    if (month !== currentMonth) {
+      // Only add label if there's enough space
+      // Assuming approx 25px width for label + 10px padding
+      if (offset > lastLabelRight + 10 && i < 50) {
+        months.push({
+          name: weekStartDate.toLocaleString('default', { month: 'short' }),
+          offset: offset
+        })
+        lastLabelRight = offset + 25 // Update right edge
+        currentMonth = month
+      }
+    }
+  }
+
+  const getGithubColor = (time) => {
+    if (!time) return colors.grey300 // Darker grey for empty cells
+
+    const range = maxTime - minTime || 1
+    const score = 1 - ((time - minTime) / range)
+
+    if (score > 0.8) return colors.green600
+    if (score > 0.6) return colors.green500
+    if (score > 0.4) return colors.green400
+    if (score > 0.2) return colors.green300
+    return colors.green200 // Darkest "light" green
+  }
+
+  const formatTime = (seconds) => {
+    if (!seconds) return ""
+    const mins = Math.floor(seconds / 60)
+    const secs = seconds % 60
+    return `${mins}:${secs.toString().padStart(2, '0')}`
+  }
+
+  const handleMouseEnter = (e, dateStr, time, status) => {
+    // Disable tooltips on mobile
+    if (window.innerWidth < 768) return
+
+    const rect = e.target.getBoundingClientRect()
+    const containerRect = e.target.closest('.heatmap-container').getBoundingClientRect()
+    const date = new Date(dateStr)
+    const dayIndex = date.getDay() // 0-6
+
+    // Bottom 2 rows (Fri 5, Sat 6) -> Show Above
+    // Others -> Show Left
+    const showAbove = dayIndex >= 5
+
+    let x, y
+
+    if (showAbove) {
+      x = rect.left - containerRect.left + 5 // Center horizontally
+      y = rect.top - containerRect.top - 10 // Above
+    } else {
+      x = rect.left - containerRect.left - 8 // Left
+      y = rect.top - containerRect.top + (rect.height / 2) // Center vertically
+    }
+
+    setHoveredDay({
+      dateStr,
+      time,
+      status,
+      x,
+      y,
+      position: showAbove ? 'above' : 'left'
+    })
+  }
+
+  return (
+    <HeatmapContainer className="heatmap-container" style={{ position: 'relative', alignItems: 'center', overflow: 'hidden' }}>
+      <HeatmapTitle>My NYT Crossword Activity</HeatmapTitle>
+      <div ref={graphRef} style={{
+        transform: `scale(${scale})`,
+        transformOrigin: 'top center',
+        marginBottom: scale < 1 ? `-${(1 - scale) * 120}px` : '0' // Compensate for scale height reduction
+      }}>
+        <GraphContainer>
+          <MonthLabels>
+            {months.map((month, i) => (
+              <MonthLabel key={i} offset={month.offset}>
+                {month.name}
+              </MonthLabel>
+            ))}
+          </MonthLabels>
+          <HeatmapGrid>
+            {days.map((date) => {
+              const dateStr = date.toISOString().split('T')[0]
+              const dayData = data[dateStr]
+              const time = dayData?.time
+              const status = dayData?.status
+              const isCompletedNoHints = status === 'completed'
+
+              return (
+                <DayCell
+                  key={dateStr}
+                  color={getGithubColor(time)}
+                  onMouseEnter={(e) => handleMouseEnter(e, dateStr, time, status)}
+                  onMouseLeave={() => setHoveredDay(null)}
+                >
+                  {isCompletedNoHints && <StarIcon />}
+                </DayCell>
+              )
+            })}
+          </HeatmapGrid>
+        </GraphContainer>
+      </div>
+
+      {hoveredDay && (
+        <Tooltip
+          position={hoveredDay.position}
+          style={{
+            left: hoveredDay.x,
+            top: hoveredDay.y,
+            transform: hoveredDay.position === 'left'
+              ? 'translate(-100%, -50%)'
+              : 'translate(-50%, -100%)'
+          }}
+        >
+          <div style={{ fontWeight: 'bold', marginBottom: '4px' }}>
+            {new Date(hoveredDay.dateStr).toLocaleDateString(undefined, { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' })}
+          </div>
+          {hoveredDay.time ? (
+            <>
+              <div>Time: {formatTime(hoveredDay.time)}</div>
+              <div style={{ fontSize: '0.9em', opacity: 0.8 }}>
+                {hoveredDay.status === 'completed' ? 'Solved without hints!' : 'Solved'}
+              </div>
+            </>
+          ) : (
+            <div>No puzzle solved</div>
+          )}
+        </Tooltip>
+      )}
+    </HeatmapContainer>
+  )
+}
+
+export default CrosswordHeatmap
