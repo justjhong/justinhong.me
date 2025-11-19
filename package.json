@@ -9,6 +9,7 @@
     "@fortawesome/react-fontawesome": "^0.1.16",
     "babel-plugin-styled-components": "^2.1.4",
     "citation-js": "^0.5.3",
+    "firebase": "^12.6.0",
     "gatsby": "^4.0.0",
     "gatsby-image": "^2.2.20",
     "gatsby-plugin-catch-links": "^2.0.12",
