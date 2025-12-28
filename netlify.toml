@@ -6,6 +6,6 @@
 
 [[redirects]]
   from = "/nudge"
-  to = "https://meetup-nudge.netlify.app/"
+  to = "https://meetup-nudge.netlify.app/nudge"
   status = 200
   force = true
