@@ -3,3 +3,9 @@
   to = "https://ai-workout-tracker-justjhong-justjhongs-projects.vercel.app/"
   status = 301
   force = true
+
+[[redirects]]
+  from = "/nudge/*"
+  to = "https://meetup-nudge.netlify.app/"
+  status = 200
+  force = true
