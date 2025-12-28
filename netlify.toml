@@ -7,5 +7,5 @@
 [[redirects]]
   from = "/nudge/*"
   to = "https://meetup-nudge.netlify.app/nudge/:splat"
-  status = 200
+  status = 301
   force = true
