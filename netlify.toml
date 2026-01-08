@@ -9,3 +9,9 @@
   to = "https://meetup-nudge.netlify.app/nudge/:splat"
   status = 301
   force = true
+
+[[redirects]]
+  from = "/canvas"
+  to = "https://justinscanvas.netlify.app/"
+  status = 301
+  force = true
