@@ -245,7 +245,7 @@ const CrosswordHeatmap = () => {
     if (month !== currentMonth) {
       // Only add label if there's enough space
       // Assuming approx 25px width for label + 10px padding
-      if (offset > lastLabelRight + 10 && i < 50) {
+      if (offset > lastLabelRight + 10) {
         months.push({
           name: weekStartDate.toLocaleString('default', { month: 'short' }),
           offset: offset
