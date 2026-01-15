@@ -206,7 +206,7 @@ const CrosswordHeatmap = () => {
   //   return <div>No crossword data found</div>
   // }
 
-  // Calculate date range for exactly 52 weeks ending this week
+  // Calculate date range for last 12 months including current month
   const today = new Date()
   const currentDay = today.getDay() // 0 (Sun) - 6 (Sat)
 
@@ -214,13 +214,17 @@ const CrosswordHeatmap = () => {
   const currentWeekSunday = new Date(today)
   currentWeekSunday.setDate(today.getDate() - currentDay)
 
-  // Start date is 51 weeks before the current week's Sunday
-  const startDate = new Date(currentWeekSunday)
-  startDate.setDate(currentWeekSunday.getDate() - (51 * 7))
-
   // End date is the Saturday of the current week
   const endDate = new Date(currentWeekSunday)
   endDate.setDate(currentWeekSunday.getDate() + 6)
+
+  // Start date: first day of the month 11 months ago (gives us 12 months including current)
+  // E.g., if today is Jan 15, 2026, start month is Feb 2025
+  const startMonth = new Date(today.getFullYear(), today.getMonth() - 11, 1)
+  // Find the Sunday of the week containing the 1st of that month
+  const startMonthDay = startMonth.getDay()
+  const startDate = new Date(startMonth)
+  startDate.setDate(startMonth.getDate() - startMonthDay)
 
   // Generate days
   const days = []
@@ -234,9 +238,10 @@ const CrosswordHeatmap = () => {
   const months = []
   let currentMonth = -1
   let lastLabelRight = -50 // Initialize to ensure first label can be placed
+  const numWeeks = Math.ceil(days.length / 7)
 
   // We iterate by week to place labels
-  for (let i = 0; i < 52; i++) {
+  for (let i = 0; i < numWeeks; i++) {
     const weekStartDate = new Date(startDate)
     weekStartDate.setDate(startDate.getDate() + (i * 7))
     const month = weekStartDate.getMonth()
