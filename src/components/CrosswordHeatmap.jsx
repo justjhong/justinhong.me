@@ -92,13 +92,13 @@ const Tooltip = styled("div")`
   z-index: 100;
   white-space: nowrap;
   box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-  
+
   &::after {
     content: '';
     position: absolute;
     border-width: 5px;
     border-style: solid;
-    
+
     ${props => props.position === 'left' ? `
       top: 50%;
       left: 100%;
@@ -110,6 +110,35 @@ const Tooltip = styled("div")`
       margin-left: -5px;
       border-color: ${colors.grey800} transparent transparent transparent;
     `}
+  }
+
+  @media (max-width: 767px) {
+    position: fixed;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    pointer-events: auto;
+    padding: 12px 16px;
+    font-size: 14px;
+
+    &::after {
+      display: none;
+    }
+  }
+`
+
+const MobileOverlay = styled("div")`
+  display: none;
+
+  @media (max-width: 767px) {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 99;
   }
 `
 
@@ -206,25 +235,29 @@ const CrosswordHeatmap = () => {
   //   return <div>No crossword data found</div>
   // }
 
-  // Calculate date range for last 12 months including current month
+  // Dynamic 12-month range: from the start of (current month - 11) to end of current month
   const today = new Date()
-  const currentDay = today.getDay() // 0 (Sun) - 6 (Sat)
+  const thisYear = today.getFullYear()
+  const thisMonth = today.getMonth()
 
-  // Find the Sunday of the current week
-  const currentWeekSunday = new Date(today)
-  currentWeekSunday.setDate(today.getDate() - currentDay)
+  // Start month is 11 months ago (to show 12 months including current)
+  const startMonthFirst = new Date(thisYear, thisMonth - 11, 1)
 
-  // End date is the Saturday of the current week
-  const endDate = new Date(currentWeekSunday)
-  endDate.setDate(currentWeekSunday.getDate() + 6)
+  // End month is the last day of the current month
+  const endMonthLast = new Date(thisYear, thisMonth + 1, 0)
 
-  // Start date: first day of the month 11 months ago (gives us 12 months including current)
-  // E.g., if today is Jan 15, 2026, start month is Feb 2025
-  const startMonth = new Date(today.getFullYear(), today.getMonth() - 11, 1)
-  // Find the Sunday of the week containing the 1st of that month
-  const startMonthDay = startMonth.getDay()
-  const startDate = new Date(startMonth)
-  startDate.setDate(startMonth.getDate() - startMonthDay)
+  // Align to week boundaries: find Sunday on or after start month's first day
+  // This ensures we don't show any days from the previous month
+  const startDayOfWeek = startMonthFirst.getDay()
+  const startDate = new Date(startMonthFirst)
+  if (startDayOfWeek !== 0) {
+    startDate.setDate(startMonthFirst.getDate() + (7 - startDayOfWeek))
+  }
+
+  // Find Saturday on or after end month's last day
+  const endDayOfWeek = endMonthLast.getDay()
+  const endDate = new Date(endMonthLast)
+  endDate.setDate(endMonthLast.getDate() + (6 - endDayOfWeek))
 
   // Generate days
   const days = []
@@ -281,10 +314,24 @@ const CrosswordHeatmap = () => {
     return `${mins}:${secs.toString().padStart(2, '0')}`
   }
 
-  const handleMouseEnter = (e, dateStr, time, status) => {
-    // Disable tooltips on mobile
-    if (window.innerWidth < 768) return
+  const isMobile = () => window.innerWidth < 768
 
+  const handleMouseEnter = (e, dateStr, time, status) => {
+    // On mobile, use click instead of hover
+    if (isMobile()) return
+
+    showTooltip(e, dateStr, time, status)
+  }
+
+  const handleClick = (e, dateStr, time, status) => {
+    // On desktop, hover handles it; on mobile, use click
+    if (!isMobile()) return
+
+    e.stopPropagation()
+    showTooltip(e, dateStr, time, status)
+  }
+
+  const showTooltip = (e, dateStr, time, status) => {
     const rect = e.target.getBoundingClientRect()
     const containerRect = e.target.closest('.heatmap-container').getBoundingClientRect()
     const date = new Date(dateStr)
@@ -312,6 +359,10 @@ const CrosswordHeatmap = () => {
       y,
       position: showAbove ? 'above' : 'left'
     })
+  }
+
+  const handleDismissTooltip = () => {
+    setHoveredDay(null)
   }
 
   return (
@@ -344,6 +395,7 @@ const CrosswordHeatmap = () => {
                   color={getGithubColor(time)}
                   onMouseEnter={(e) => handleMouseEnter(e, dateStr, time, status)}
                   onMouseLeave={() => setHoveredDay(null)}
+                  onClick={(e) => handleClick(e, dateStr, time, status)}
                 >
                   {isCompletedNoHints && <StarIcon />}
                 </DayCell>
@@ -354,30 +406,33 @@ const CrosswordHeatmap = () => {
       </div>
 
       {hoveredDay && (
-        <Tooltip
-          position={hoveredDay.position}
-          style={{
-            left: hoveredDay.x,
-            top: hoveredDay.y,
-            transform: hoveredDay.position === 'left'
-              ? 'translate(-100%, -50%)'
-              : 'translate(-50%, -100%)'
-          }}
-        >
-          <div style={{ fontWeight: 'bold', marginBottom: '4px' }}>
-            {new Date(hoveredDay.dateStr).toLocaleDateString(undefined, { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' })}
-          </div>
-          {hoveredDay.time ? (
-            <>
-              <div>Time: {formatTime(hoveredDay.time)}</div>
-              <div style={{ fontSize: '0.9em', opacity: 0.8 }}>
-                {hoveredDay.status === 'completed' ? 'Solved without hints!' : 'Solved'}
-              </div>
-            </>
-          ) : (
-            <div>No puzzle solved</div>
-          )}
-        </Tooltip>
+        <>
+          <MobileOverlay onClick={handleDismissTooltip} />
+          <Tooltip
+            position={hoveredDay.position}
+            style={{
+              left: hoveredDay.x,
+              top: hoveredDay.y,
+              transform: hoveredDay.position === 'left'
+                ? 'translate(-100%, -50%)'
+                : 'translate(-50%, -100%)'
+            }}
+          >
+            <div style={{ fontWeight: 'bold', marginBottom: '4px' }}>
+              {new Date(hoveredDay.dateStr).toLocaleDateString(undefined, { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' })}
+            </div>
+            {hoveredDay.time ? (
+              <>
+                <div>Time: {formatTime(hoveredDay.time)}</div>
+                <div style={{ fontSize: '0.9em', opacity: 0.8 }}>
+                  {hoveredDay.status === 'completed' ? 'Solved without hints!' : 'Solved'}
+                </div>
+              </>
+            ) : (
+              <div>No puzzle solved</div>
+            )}
+          </Tooltip>
+        </>
       )}
     </HeatmapContainer>
   )
