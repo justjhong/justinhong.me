@@ -15,3 +15,9 @@
   to = "https://justinscanvas.netlify.app/"
   status = 301
   force = true
+
+[[redirects]]
+  from = "/beli"
+  to = "https://belicorrelation.vercel.app/"
+  status = 301
+  force = true
