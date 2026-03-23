@@ -22,6 +22,12 @@
   status = 301
   force = true
 
+[[redirects]]
+  from = "/links/*"
+  to = "https://intermediatelink.vercel.app/links/:splat"
+  status = 200
+  force = true
+
 # --- intermediatelink managed redirects ---
 [[redirects]]
   from = "/test"
