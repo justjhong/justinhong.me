@@ -23,6 +23,12 @@
   force = true
 
 [[redirects]]
+  from = "/links"
+  to = "https://intermediatelink.vercel.app/links"
+  status = 200
+  force = true
+
+[[redirects]]
   from = "/links/*"
   to = "https://intermediatelink.vercel.app/links/:splat"
   status = 200
