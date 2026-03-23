@@ -21,3 +21,10 @@
   to = "https://belicorrelation.vercel.app/"
   status = 301
   force = true
+
+# --- intermediatelink managed redirects ---
+[[redirects]]
+  from = "/test"
+  to = "https://www.youtube.com/watch?v=1vrEljMfXYo"
+  status = 302
+  force = true
