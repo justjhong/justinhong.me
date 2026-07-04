@@ -36,6 +36,12 @@
 
 # --- intermediatelink managed redirects ---
 [[redirects]]
+  from = "/defense-zoom"
+  to = "https://columbiauniversity.zoom.us/j/7932952125?pwd=uAHccXFv70FKDTW89xOuraW2ODsN2M.1&omn=96944798183"
+  status = 302
+  force = true
+
+[[redirects]]
   from = "/test"
   to = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
   status = 302
