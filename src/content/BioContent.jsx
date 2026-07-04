@@ -4,14 +4,14 @@ const BioContent = () => (
   <div>
     <h1>Hello, I'm Justin Hong.</h1>
     <p>
-      I am a final year Ph.D. candidate at Columbia University in the Computer
-      Science Department advised by&nbsp;
-      <a href="https://www.azizilab.com/">Professor Elham Azizi</a>. I am
-      interested in developing scalable and easily interpretable computational
-      methods for unraveling the complexities of biological data.
+      I recently completed my Ph.D. at Columbia University in the Computer
+      Science Department, advised by&nbsp;
+      <a href="https://www.azizilab.com/">Professor Elham Azizi</a>. My
+      dissertation focused on developing scalable and easily interpretable
+      computational methods for unraveling the complexities of biological data.
       <br />
       <br />
-      Previously, I was a research engineer at the{" "}
+      Before, I was a research engineer at the{" "}
       <a href="https://yoseflab.github.io/">Yosef Lab</a> at&nbsp;
       <a href="https://www.berkeley.edu/">UC Berkeley</a>, where I contributed
       to the open source package&nbsp;
