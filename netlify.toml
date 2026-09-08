@@ -40,8 +40,6 @@
   status = 301
   force = true
 
-  https://jj-jeopardy.netlify.app/display.html
-
 # --- intermediatelink managed redirects ---
 [[redirects]]
   from = "/defense-zoom"
