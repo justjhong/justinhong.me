@@ -36,9 +36,11 @@
 
 [[redirects]]
   from = "/jeopardy"
-  to = "https://jj-jeopardy.vercel.app/"
+  to = "https://jj-jeopardy.netlify.app/"
   status = 301
   force = true
+
+  https://jj-jeopardy.netlify.app/display.html
 
 # --- intermediatelink managed redirects ---
 [[redirects]]
