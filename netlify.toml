@@ -17,12 +17,6 @@
   force = true
 
 [[redirects]]
-  from = "/beli"
-  to = "https://belicorrelation.vercel.app/"
-  status = 301
-  force = true
-
-[[redirects]]
   from = "/links"
   to = "https://intermediatelink.vercel.app/links"
   status = 200
